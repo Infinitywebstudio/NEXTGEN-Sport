@@ -1,0 +1,57 @@
+# NEXGEN SPORT - .gitignore
+
+# Fichiers de configuration locale Claude
+.claude/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+*~
+
+# Fichiers d'éditeurs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node modules (si vous ajoutez npm plus tard)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Archives
+*.zip
+*.rar
+*.7z
+*.tar.gz
+
+# Fichiers de build (pour plus tard avec React)
+build/
+dist/
+.cache/
+.parcel-cache/
+
+# Variables d'environnement
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Fichiers de test
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
