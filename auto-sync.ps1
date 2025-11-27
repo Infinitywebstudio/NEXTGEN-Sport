@@ -50,20 +50,6 @@ function Get-Timestamp {
     return Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 }
 
-# Fonction pour envoyer une notification Windows (optionnel)
-function Send-Notification {
-    param($title, $message)
-
-    try {
-        $null = [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime]
-        # Note: Notifications Windows 10+ nécessitent plus de configuration
-        # On se contente d'un beep pour l'instant
-        [Console]::Beep(800, 200)
-    } catch {
-        # Ignore si pas supporté
-    }
-}
-
 # Boucle de surveillance
 $checkCount = 0
 
@@ -76,12 +62,13 @@ while ($true) {
 
     # Fetch les dernières modifications
     try {
-        $fetchResult = git fetch $repo $branch 2>&1
+        $fetchResult = git fetch $repo $branch --quiet 2>&1
 
         if ($LASTEXITCODE -ne 0) {
             Write-Host "[ERREUR] Impossible de contacter le repo distant" -ForegroundColor $colorError
             Write-Host "        Vérifiez votre connexion Internet" -ForegroundColor $colorWarning
-        } else {
+        }
+        else {
             # Comparer local vs distant
             $localHash = Get-CommitHash "HEAD"
             $remoteHash = Get-CommitHash "$repo/$branch"
@@ -89,14 +76,19 @@ while ($true) {
             if ($localHash -ne $remoteHash) {
                 Write-Host ""
                 Write-Host "============================================" -ForegroundColor $colorSuccess
-                Write-Host "   🔔 MISE À JOUR DÉTECTÉE !" -ForegroundColor $colorSuccess
+                Write-Host "   MISE A JOUR DETECTEE !" -ForegroundColor $colorSuccess
                 Write-Host "============================================" -ForegroundColor $colorSuccess
                 Write-Host ""
 
                 # Beep de notification
-                [Console]::Beep(1000, 300)
-                Start-Sleep -Milliseconds 100
-                [Console]::Beep(1200, 300)
+                try {
+                    [Console]::Beep(1000, 300)
+                    Start-Sleep -Milliseconds 100
+                    [Console]::Beep(1200, 300)
+                }
+                catch {
+                    # Ignore si beep non supporté
+                }
 
                 # Afficher les changements
                 Write-Host "[INFO] Nouveaux commits :" -ForegroundColor $colorInfo
@@ -104,27 +96,29 @@ while ($true) {
                 Write-Host ""
 
                 # Vérifier s'il y a des modifications locales
-                $hasLocalChanges = git diff --quiet; $LASTEXITCODE -ne 0
+                git diff --quiet
+                $hasLocalChanges = ($LASTEXITCODE -ne 0)
 
                 if ($hasLocalChanges) {
                     Write-Host "[INFO] Sauvegarde des modifications locales..." -ForegroundColor $colorWarning
                     git stash push -m "Auto-stash $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
                     $stashed = $true
-                } else {
+                }
+                else {
                     $stashed = $false
                 }
 
                 # Mettre à jour
-                Write-Host "[INFO] Téléchargement des mises à jour..." -ForegroundColor $colorInfo
+                Write-Host "[INFO] Telechargement des mises a jour..." -ForegroundColor $colorInfo
                 $pullResult = git pull $repo $branch --no-edit 2>&1
 
                 if ($LASTEXITCODE -eq 0) {
                     Write-Host ""
-                    Write-Host "[✓ SUCCÈS] Fichiers locaux mis à jour !" -ForegroundColor $colorSuccess
+                    Write-Host "[SUCCES] Fichiers locaux mis a jour !" -ForegroundColor $colorSuccess
                     Write-Host ""
 
                     # Afficher les fichiers modifiés
-                    Write-Host "[INFO] Fichiers modifiés :" -ForegroundColor $colorInfo
+                    Write-Host "[INFO] Fichiers modifies :" -ForegroundColor $colorInfo
                     git diff --name-status HEAD@{1} HEAD
                     Write-Host ""
 
@@ -135,14 +129,19 @@ while ($true) {
                     }
 
                     # Notification sonore de succès
-                    [Console]::Beep(800, 150)
-                    Start-Sleep -Milliseconds 50
-                    [Console]::Beep(1000, 150)
-                    Start-Sleep -Milliseconds 50
-                    [Console]::Beep(1200, 300)
-
-                } else {
-                    Write-Host "[✗ ERREUR] Échec de la mise à jour" -ForegroundColor $colorError
+                    try {
+                        [Console]::Beep(800, 150)
+                        Start-Sleep -Milliseconds 50
+                        [Console]::Beep(1000, 150)
+                        Start-Sleep -Milliseconds 50
+                        [Console]::Beep(1200, 300)
+                    }
+                    catch {
+                        # Ignore si beep non supporté
+                    }
+                }
+                else {
+                    Write-Host "[ERREUR] Echec de la mise a jour" -ForegroundColor $colorError
                     Write-Host $pullResult -ForegroundColor $colorError
 
                     if ($stashed) {
@@ -153,18 +152,18 @@ while ($true) {
 
                 Write-Host "============================================" -ForegroundColor $colorSuccess
                 Write-Host ""
-
-            } else {
-                Write-Host "        [✓ OK] Aucune mise à jour" -ForegroundColor $colorSuccess
+            }
+            else {
+                Write-Host "        [OK] Aucune mise a jour" -ForegroundColor $colorSuccess
             }
         }
-
-    } catch {
+    }
+    catch {
         Write-Host "[ERREUR] Une erreur s'est produite : $_" -ForegroundColor $colorError
     }
 
     # Attendre avant la prochaine vérification
-    Write-Host "        Prochaine vérification dans $interval secondes..." -ForegroundColor DarkGray
+    Write-Host "        Prochaine verification dans $interval secondes..." -ForegroundColor DarkGray
     Write-Host ""
     Start-Sleep -Seconds $interval
 }
