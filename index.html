@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXGEN SPORT - Découvrez les Talents de Demain</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>NEXGEN <span>SPORT</span></h1>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#" class="active">Accueil</a></li>
+                        <li class="dropdown">
+                            <a href="#">Football <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Masculin</a></li>
+                                <li><a href="#">Féminin</a></li>
+                                <li><a href="#">Formation</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Basketball <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Masculin</a></li>
+                                <li><a href="#">Féminin</a></li>
+                                <li><a href="#">Formation</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Handball <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Masculin</a></li>
+                                <li><a href="#">Féminin</a></li>
+                                <li><a href="#">Formation</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Sports Individuels <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Tennis</a></li>
+                                <li><a href="#">Sports de combat</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#">Médias <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Vidéos</a></li>
+                                <li><a href="#">Podcasts</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="dashboard.html" class="btn-primary">Mon Compte</a>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">Découvrez la Nouvelle Génération Sportive</h2>
+                <p class="hero-subtitle">Mettez en lumière votre talent ou trouvez les athlètes de demain</p>
+
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <h3><i class="fas fa-search"></i> Trouver un Talent</h3>
+                    <div class="search-filters">
+                        <select class="filter-select">
+                            <option value="">⚽ Sport</option>
+                            <option value="football">Football</option>
+                            <option value="basketball">Basketball</option>
+                            <option value="handball">Handball</option>
+                            <option value="tennis">Tennis</option>
+                            <option value="combat">Sports de combat</option>
+                        </select>
+                        <select class="filter-select">
+                            <option value="">🎯 Poste / Catégorie</option>
+                            <option value="attaquant">Attaquant</option>
+                            <option value="defenseur">Défenseur</option>
+                            <option value="milieu">Milieu</option>
+                            <option value="gardien">Gardien</option>
+                        </select>
+                        <select class="filter-select">
+                            <option value="">🌍 Pays / Ville</option>
+                            <option value="france">France</option>
+                            <option value="belgique">Belgique</option>
+                            <option value="senegal">Sénégal</option>
+                            <option value="cote-ivoire">Côte d'Ivoire</option>
+                        </select>
+                        <button class="btn-search">Rechercher</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Talents Section -->
+    <section class="talents-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Talents en Vedette</h2>
+                <p>Découvrez les sportifs qui font parler d'eux</p>
+            </div>
+
+            <div class="talents-grid">
+                <!-- Talent Card 1 -->
+                <div class="talent-card">
+                    <div class="talent-image">
+                        <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=400&h=500&fit=crop" alt="Talent 1">
+                        <span class="talent-badge">⭐ Top</span>
+                    </div>
+                    <div class="talent-info">
+                        <h3>Amadou DIALLO</h3>
+                        <p class="talent-sport">Football • Attaquant</p>
+                        <p class="talent-location"><i class="fas fa-map-marker-alt"></i> Paris, France</p>
+                        <div class="talent-details">
+                            <span>19 ans</span>
+                            <span>Semi-pro</span>
+                        </div>
+                        <a href="#" class="btn-view-profile">Voir le Profil</a>
+                    </div>
+                </div>
+
+                <!-- Talent Card 2 -->
+                <div class="talent-card">
+                    <div class="talent-image">
+                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=500&fit=crop" alt="Talent 2">
+                    </div>
+                    <div class="talent-info">
+                        <h3>Sophie MARTIN</h3>
+                        <p class="talent-sport">Basketball • Arrière</p>
+                        <p class="talent-location"><i class="fas fa-map-marker-alt"></i> Lyon, France</p>
+                        <div class="talent-details">
+                            <span>21 ans</span>
+                            <span>Formation</span>
+                        </div>
+                        <a href="#" class="btn-view-profile">Voir le Profil</a>
+                    </div>
+                </div>
+
+                <!-- Talent Card 3 -->
+                <div class="talent-card">
+                    <div class="talent-image">
+                        <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400&h=500&fit=crop" alt="Talent 3">
+                        <span class="talent-badge">🔥 Rising</span>
+                    </div>
+                    <div class="talent-info">
+                        <h3>Ibrahim SANÉ</h3>
+                        <p class="talent-sport">Handball • Ailier Gauche</p>
+                        <p class="talent-location"><i class="fas fa-map-marker-alt"></i> Dakar, Sénégal</p>
+                        <div class="talent-details">
+                            <span>22 ans</span>
+                            <span>Amateur</span>
+                        </div>
+                        <a href="#" class="btn-view-profile">Voir le Profil</a>
+                    </div>
+                </div>
+
+                <!-- Talent Card 4 -->
+                <div class="talent-card">
+                    <div class="talent-image">
+                        <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=400&h=500&fit=crop" alt="Talent 4">
+                    </div>
+                    <div class="talent-info">
+                        <h3>Léa DUBOIS</h3>
+                        <p class="talent-sport">Tennis • Simple</p>
+                        <p class="talent-location"><i class="fas fa-map-marker-alt"></i> Bruxelles, Belgique</p>
+                        <div class="talent-details">
+                            <span>18 ans</span>
+                            <span>Junior</span>
+                        </div>
+                        <a href="#" class="btn-view-profile">Voir le Profil</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-cta">
+                <button class="btn-secondary">Voir Plus de Talents</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comment ça Marche</h2>
+                <p>Rejoignez notre communauté en 3 étapes simples</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>1. Créez votre Profil</h3>
+                    <p>Inscrivez-vous et complétez votre fiche talent avec vos informations, stats et vidéos</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>2. Gagnez en Visibilité</h3>
+                    <p>Partagez vos performances et mises à jour pour être remarqué par notre communauté</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>3. Saisissez les Opportunités</h3>
+                    <p>Attirez l'attention des clubs, agents et sponsors pour propulser votre carrière</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Notre Mission</h2>
+                    <p>NEXGEN SPORT est un média dédié à la mise en lumière des talents émergents du sport francophone.</p>
+                    <p>Nous identifions, valorisons et accompagnons les athlètes de demain en leur offrant une visibilité professionnelle, des contenus crédibles et factuels, et une plateforme fiable pour grandir.</p>
+                    <ul class="mission-points">
+                        <li><i class="fas fa-check-circle"></i> Créer un pont entre talents, clubs et agents</li>
+                        <li><i class="fas fa-check-circle"></i> Devenir la référence du sport francophone</li>
+                        <li><i class="fas fa-check-circle"></i> Offrir la vitrine que mérite la jeunesse sportive</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop" alt="Sport">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section class="media-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Derniers Contenus</h2>
+                <p>Analyses, interviews et portraits des talents émergents</p>
+            </div>
+            <div class="media-grid">
+                <div class="media-card">
+                    <div class="media-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=400&h=250&fit=crop" alt="Article 1">
+                        <span class="media-type"><i class="fas fa-play"></i> Vidéo</span>
+                    </div>
+                    <div class="media-content">
+                        <h3>Top 10 des jeunes espoirs du football français</h3>
+                        <p class="media-date"><i class="far fa-calendar"></i> 15 Nov 2025</p>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="media-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=250&fit=crop" alt="Article 2">
+                        <span class="media-type"><i class="fas fa-microphone"></i> Podcast</span>
+                    </div>
+                    <div class="media-content">
+                        <h3>Interview : Les coulisses du recrutement sportif</h3>
+                        <p class="media-date"><i class="far fa-calendar"></i> 12 Nov 2025</p>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="media-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=250&fit=crop" alt="Article 3">
+                        <span class="media-type"><i class="fas fa-newspaper"></i> Article</span>
+                    </div>
+                    <div class="media-content">
+                        <h3>Comment optimiser sa visibilité en tant que jeune sportif</h3>
+                        <p class="media-date"><i class="far fa-calendar"></i> 10 Nov 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>NEXGEN SPORT</h3>
+                    <p>Le média de la nouvelle génération sportive francophone</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/nexgen_sport1340/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">Talents</a></li>
+                        <li><a href="#">Médias</a></li>
+                        <li><a href="#">À propos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Sports</h4>
+                    <ul>
+                        <li><a href="#">Football</a></li>
+                        <li><a href="#">Basketball</a></li>
+                        <li><a href="#">Handball</a></li>
+                        <li><a href="#">Sports Individuels</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Informations</h4>
+                    <ul>
+                        <li><a href="#">Mentions légales</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
+                        <li><a href="#">Conditions d'utilisation</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NEXGEN SPORT. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
