@@ -45,10 +45,10 @@ get_timestamp() {
     date "+%Y-%m-%d %H:%M:%S"
 }
 
-# Fonction pour notification sonore (optionnel)
+# Fonction pour notification sonore (désactivé)
 beep() {
-    # Fonctionne sur certains systèmes Linux/Mac
-    command -v tput >/dev/null 2>&1 && tput bel
+    # Sons désactivés
+    :
 }
 
 # Compteur de vérifications

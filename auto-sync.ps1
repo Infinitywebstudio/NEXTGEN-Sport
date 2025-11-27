@@ -80,15 +80,15 @@ while ($true) {
                 Write-Host "============================================" -ForegroundColor $colorSuccess
                 Write-Host ""
 
-                # Beep de notification
-                try {
-                    [Console]::Beep(1000, 300)
-                    Start-Sleep -Milliseconds 100
-                    [Console]::Beep(1200, 300)
-                }
-                catch {
-                    # Ignore si beep non supporté
-                }
+                # Beep de notification (désactivé)
+                # try {
+                #     [Console]::Beep(1000, 300)
+                #     Start-Sleep -Milliseconds 100
+                #     [Console]::Beep(1200, 300)
+                # }
+                # catch {
+                #     # Ignore si beep non supporté
+                # }
 
                 # Afficher les changements
                 Write-Host "[INFO] Nouveaux commits :" -ForegroundColor $colorInfo
@@ -128,17 +128,17 @@ while ($true) {
                         git stash pop
                     }
 
-                    # Notification sonore de succès
-                    try {
-                        [Console]::Beep(800, 150)
-                        Start-Sleep -Milliseconds 50
-                        [Console]::Beep(1000, 150)
-                        Start-Sleep -Milliseconds 50
-                        [Console]::Beep(1200, 300)
-                    }
-                    catch {
-                        # Ignore si beep non supporté
-                    }
+                    # Notification sonore de succès (désactivé)
+                    # try {
+                    #     [Console]::Beep(800, 150)
+                    #     Start-Sleep -Milliseconds 50
+                    #     [Console]::Beep(1000, 150)
+                    #     Start-Sleep -Milliseconds 50
+                    #     [Console]::Beep(1200, 300)
+                    # }
+                    # catch {
+                    #     # Ignore si beep non supporté
+                    # }
                 }
                 else {
                     Write-Host "[ERREUR] Echec de la mise a jour" -ForegroundColor $colorError
