@@ -14,7 +14,7 @@ NC='\033[0m' # No Color
 # Configuration
 INTERVAL=10  # Intervalle en secondes
 REPO="origin"
-BRANCH="main"
+BRANCH="claude/remove-attacker-label-01MneqeauuAUhrjKKRJCHKQS"
 
 # Banner
 clear

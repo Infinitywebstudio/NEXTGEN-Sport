@@ -27,7 +27,7 @@ echo.
     echo [%date% %time:~0,8%] Vérification des mises à jour...
 
     REM Récupérer les dernières infos du repo distant
-    git fetch origin main --quiet 2>nul
+    git fetch origin claude/remove-attacker-label-01MneqeauuAUhrjKKRJCHKQS --quiet 2>nul
 
     if errorlevel 1 (
         echo [ERREUR] Impossible de contacter le repo distant
@@ -36,7 +36,7 @@ echo.
 
     REM Comparer la branche locale avec la distante
     for /f %%i in ('git rev-parse HEAD') do set LOCAL=%%i
-    for /f %%i in ('git rev-parse origin/main') do set REMOTE=%%i
+    for /f %%i in ('git rev-parse origin/claude/remove-attacker-label-01MneqeauuAUhrjKKRJCHKQS') do set REMOTE=%%i
 
     if not "%LOCAL%"=="%REMOTE%" (
         echo.
@@ -47,7 +47,7 @@ echo.
 
         REM Afficher les changements
         echo [INFO] Changements détectés :
-        git log HEAD..origin/main --oneline --decorate --color=always
+        git log HEAD..origin/claude/remove-attacker-label-01MneqeauuAUhrjKKRJCHKQS --oneline --decorate --color=always
         echo.
 
         REM Sauvegarder les modifications locales si nécessaire
@@ -62,7 +62,7 @@ echo.
 
         REM Mettre à jour
         echo [INFO] Téléchargement des mises à jour...
-        git pull origin main --no-edit
+        git pull origin claude/remove-attacker-label-01MneqeauuAUhrjKKRJCHKQS --no-edit
 
         if errorlevel 1 (
             echo [ERREUR] Échec de la mise à jour

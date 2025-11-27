@@ -13,7 +13,7 @@ $colorInfo = "White"
 # Configuration
 $interval = 10  # Intervalle en secondes entre chaque vérification
 $repo = "origin"
-$branch = "main"
+$branch = "claude/remove-attacker-label-01MneqeauuAUhrjKKRJCHKQS"
 
 # Banner
 Clear-Host
