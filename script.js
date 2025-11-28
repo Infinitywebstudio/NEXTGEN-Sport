@@ -14,8 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Sidebar Navigation Active State
+    // Sidebar Navigation Active State & Tab Switching
     const sidebarLinks = document.querySelectorAll('.sidebar-nav a');
+    const tabContents = document.querySelectorAll('.tab-content');
+
     sidebarLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -26,13 +28,136 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add active class to clicked item
             this.parentElement.classList.add('active');
 
-            // Scroll to section (if needed)
-            const targetId = this.getAttribute('href');
-            if (targetId && targetId !== '#') {
-                const targetSection = document.querySelector(targetId);
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
+            // Get the tab to show
+            const tab = this.parentElement.getAttribute('data-tab');
+
+            if (tab) {
+                // Hide all tabs
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Show the selected tab
+                const targetTab = document.getElementById(`${tab}-tab`);
+                if (targetTab) {
+                    targetTab.classList.add('active');
                 }
+            }
+        });
+    });
+
+    // ========================================
+    // PROFILE EDIT FUNCTIONALITY
+    // ========================================
+
+    // Save Profile Button
+    const btnSave = document.querySelector('.btn-save');
+    if (btnSave) {
+        btnSave.addEventListener('click', function() {
+            // Récupérer toutes les données du formulaire
+            const profileData = {
+                prenom: document.getElementById('prenom')?.value,
+                nom: document.getElementById('nom')?.value,
+                dateNaissance: document.getElementById('date-naissance')?.value,
+                nationalite: document.getElementById('nationalite')?.value,
+                ville: document.getElementById('ville')?.value,
+                pays: document.getElementById('pays')?.value,
+                sport: document.getElementById('sport')?.value,
+                position: document.getElementById('position')?.value,
+                niveau: document.getElementById('niveau')?.value,
+                piedPrefere: document.getElementById('pied-prefere')?.value,
+                taille: document.getElementById('taille')?.value,
+                poids: document.getElementById('poids')?.value,
+                bio: document.getElementById('bio')?.value
+            };
+
+            console.log('Données du profil à sauvegarder:', profileData);
+
+            // Animation de sauvegarde
+            btnSave.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sauvegarde...';
+            btnSave.disabled = true;
+
+            // Simuler une sauvegarde (à remplacer par une vraie requête API)
+            setTimeout(() => {
+                btnSave.innerHTML = '<i class="fas fa-check"></i> Sauvegardé !';
+                setTimeout(() => {
+                    btnSave.innerHTML = '<i class="fas fa-save"></i> Enregistrer';
+                    btnSave.disabled = false;
+                }, 1500);
+            }, 1000);
+        });
+    }
+
+    // Cancel Button
+    const btnCancel = document.querySelector('.btn-cancel');
+    if (btnCancel) {
+        btnCancel.addEventListener('click', function() {
+            if (confirm('Annuler les modifications ?')) {
+                // Recharger la page ou revenir aux valeurs initiales
+                location.reload();
+            }
+        });
+    }
+
+    // Add Experience Button
+    const btnAddExperience = document.querySelector('.btn-add-experience');
+    if (btnAddExperience) {
+        btnAddExperience.addEventListener('click', function() {
+            const experienceList = document.querySelector('.experience-list');
+            const newExperience = document.createElement('div');
+            newExperience.className = 'experience-item';
+            newExperience.innerHTML = `
+                <div class="experience-header">
+                    <input type="text" class="exp-title" value="Nouvelle expérience" placeholder="Nom du club / équipe">
+                    <button class="btn-delete-exp"><i class="fas fa-trash"></i></button>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Date de début</label>
+                        <input type="month" value="">
+                    </div>
+                    <div class="form-group">
+                        <label>Date de fin</label>
+                        <input type="month" value="">
+                        <label class="checkbox-label">
+                            <input type="checkbox"> En cours
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea rows="2" placeholder="Décrivez votre rôle et vos réalisations"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Tags</label>
+                    <input type="text" placeholder="Ex: Formation, Professionnel">
+                </div>
+            `;
+            experienceList.appendChild(newExperience);
+
+            // Attacher l'événement de suppression au nouveau bouton
+            const deleteBtn = newExperience.querySelector('.btn-delete-exp');
+            deleteBtn.addEventListener('click', function() {
+                if (confirm('Supprimer cette expérience ?')) {
+                    newExperience.style.opacity = '0';
+                    setTimeout(() => {
+                        newExperience.remove();
+                    }, 300);
+                }
+            });
+        });
+    }
+
+    // Delete Experience Buttons
+    const deleteExpButtons = document.querySelectorAll('.btn-delete-exp');
+    deleteExpButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            if (confirm('Supprimer cette expérience ?')) {
+                const expItem = this.closest('.experience-item');
+                expItem.style.opacity = '0';
+                setTimeout(() => {
+                    expItem.remove();
+                }, 300);
             }
         });
     });

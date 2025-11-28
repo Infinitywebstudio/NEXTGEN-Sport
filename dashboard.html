@@ -15,46 +15,28 @@
         </div>
         <nav class="sidebar-nav">
             <ul>
-                <li class="active">
+                <li class="active" data-tab="overview">
                     <a href="#overview">
                         <i class="fas fa-th-large"></i>
                         <span>Vue d'ensemble</span>
                     </a>
                 </li>
-                <li>
+                <li data-tab="profile">
                     <a href="#profile">
                         <i class="fas fa-user"></i>
                         <span>Mon Profil</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#skills">
-                        <i class="fas fa-star"></i>
-                        <span>Compétences</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#experience">
-                        <i class="fas fa-trophy"></i>
-                        <span>Parcours</span>
-                    </a>
-                </li>
-                <li>
+                <li data-tab="portfolio">
                     <a href="#portfolio">
                         <i class="fas fa-folder-open"></i>
                         <span>Portfolio</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#opportunities">
-                        <i class="fas fa-briefcase"></i>
-                        <span>Opportunités</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#settings">
-                        <i class="fas fa-cog"></i>
-                        <span>Paramètres</span>
+                <li data-tab="chat">
+                    <a href="#chat">
+                        <i class="fas fa-comments"></i>
+                        <span>Chat</span>
                     </a>
                 </li>
             </ul>
@@ -89,6 +71,8 @@
             </div>
         </header>
 
+        <!-- Tab: Vue d'ensemble -->
+        <div id="overview-tab" class="tab-content active">
         <!-- Dashboard Stats Overview -->
         <section class="stats-overview">
             <div class="stat-card">
@@ -255,6 +239,250 @@
                 </div>
             </div>
 
+        </div>
+        </div>
+
+        <!-- Tab: Mon Profil -->
+        <div id="profile-tab" class="tab-content">
+            <div class="profile-edit-container">
+                <div class="card-header">
+                    <h2><i class="fas fa-user"></i> Mon Profil</h2>
+                </div>
+
+                <!-- Informations personnelles -->
+                <div class="profile-section">
+                    <h3>Informations Personnelles</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" id="prenom" value="Amadou">
+                        </div>
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" value="DIALLO">
+                        </div>
+                        <div class="form-group">
+                            <label for="date-naissance">Date de naissance</label>
+                            <input type="date" id="date-naissance" value="2005-03-15">
+                        </div>
+                        <div class="form-group">
+                            <label for="nationalite">Nationalité</label>
+                            <input type="text" id="nationalite" value="Française">
+                        </div>
+                        <div class="form-group">
+                            <label for="ville">Ville</label>
+                            <input type="text" id="ville" value="Paris">
+                        </div>
+                        <div class="form-group">
+                            <label for="pays">Pays</label>
+                            <input type="text" id="pays" value="France">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Informations sportives -->
+                <div class="profile-section">
+                    <h3>Informations Sportives</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="sport">Sport</label>
+                            <select id="sport">
+                                <option value="football" selected>Football</option>
+                                <option value="basketball">Basketball</option>
+                                <option value="tennis">Tennis</option>
+                                <option value="rugby">Rugby</option>
+                                <option value="handball">Handball</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">Position / Poste</label>
+                            <input type="text" id="position" value="Attaquant">
+                        </div>
+                        <div class="form-group">
+                            <label for="niveau">Niveau</label>
+                            <select id="niveau">
+                                <option value="amateur">Amateur</option>
+                                <option value="semi-pro" selected>Semi-professionnel</option>
+                                <option value="pro">Professionnel</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="pied-prefere">Pied préféré</label>
+                            <select id="pied-prefere">
+                                <option value="gauche">Gauche</option>
+                                <option value="droit" selected>Droit</option>
+                                <option value="ambidextre">Ambidextre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="taille">Taille (cm)</label>
+                            <input type="number" id="taille" value="178">
+                        </div>
+                        <div class="form-group">
+                            <label for="poids">Poids (kg)</label>
+                            <input type="number" id="poids" value="72">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- À propos -->
+                <div class="profile-section">
+                    <h3>À propos</h3>
+                    <div class="form-group full-width">
+                        <label for="bio">Biographie</label>
+                        <textarea id="bio" rows="4">Attaquant polyvalent avec une excellente vision du jeu. Passionné et déterminé à progresser vers le niveau professionnel.</textarea>
+                    </div>
+                </div>
+
+                <!-- Parcours & Expériences -->
+                <div class="profile-section">
+                    <h3><i class="fas fa-trophy"></i> Parcours & Expériences</h3>
+                    <div class="experience-list">
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <input type="text" class="exp-title" value="Paris FC - Équipe Réserve">
+                                <button class="btn-delete-exp"><i class="fas fa-trash"></i></button>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Date de début</label>
+                                    <input type="month" value="2024-09">
+                                </div>
+                                <div class="form-group">
+                                    <label>Date de fin</label>
+                                    <input type="month" value="">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" checked> En cours
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea rows="2">Attaquant principal • 18 buts en 24 matchs</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <input type="text" value="Semi-professionnel, Championnat National 3">
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <input type="text" class="exp-title" value="FC Créteil - U19">
+                                <button class="btn-delete-exp"><i class="fas fa-trash"></i></button>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Date de début</label>
+                                    <input type="month" value="2023-01">
+                                </div>
+                                <div class="form-group">
+                                    <label>Date de fin</label>
+                                    <input type="month" value="2024-08">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea rows="2">Attaquant • 32 buts en 45 matchs</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <input type="text" value="Formation, Champion régional">
+                            </div>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <input type="text" class="exp-title" value="AS Bondy - U17">
+                                <button class="btn-delete-exp"><i class="fas fa-trash"></i></button>
+                            </div>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Date de début</label>
+                                    <input type="month" value="2020-09">
+                                </div>
+                                <div class="form-group">
+                                    <label>Date de fin</label>
+                                    <input type="month" value="2022-12">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea rows="2">Attaquant • Formation jeune</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Tags</label>
+                                <input type="text" value="Formation">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-add-experience"><i class="fas fa-plus"></i> Ajouter une expérience</button>
+                </div>
+
+                <!-- Boutons d'action -->
+                <div class="profile-actions">
+                    <button class="btn-save"><i class="fas fa-save"></i> Enregistrer</button>
+                    <button class="btn-cancel">Annuler</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Portfolio -->
+        <div id="portfolio-tab" class="tab-content">
+            <div class="dashboard-card portfolio-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-folder-open"></i> Portfolio Vidéo</h2>
+                    <button class="btn-edit"><i class="fas fa-upload"></i> Upload</button>
+                </div>
+                <div class="card-body">
+                    <div class="portfolio-grid">
+                        <div class="portfolio-item">
+                            <div class="portfolio-thumbnail">
+                                <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=300&h=200&fit=crop" alt="Video 1">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <p>Highlights - Saison 2024/25</p>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="portfolio-thumbnail">
+                                <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=300&h=200&fit=crop" alt="Video 2">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <p>Match vs FC Lyon (2 buts)</p>
+                        </div>
+                        <div class="portfolio-item">
+                            <div class="portfolio-thumbnail">
+                                <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=300&h=200&fit=crop" alt="Video 3">
+                                <div class="play-overlay">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <p>Entraînement technique</p>
+                        </div>
+                        <div class="portfolio-item add-new">
+                            <i class="fas fa-plus"></i>
+                            <p>Ajouter une vidéo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Chat -->
+        <div id="chat-tab" class="tab-content">
+            <div class="chat-container">
+                <div class="card-header">
+                    <h2><i class="fas fa-comments"></i> Messages</h2>
+                </div>
+                <div class="chat-placeholder">
+                    <i class="fas fa-comments" style="font-size: 4rem; color: #ccc;"></i>
+                    <p>La fonctionnalité de chat sera bientôt disponible</p>
+                </div>
+            </div>
         </div>
 
     </main>
