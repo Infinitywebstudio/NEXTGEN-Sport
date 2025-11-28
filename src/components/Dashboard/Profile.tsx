@@ -8,6 +8,10 @@ import {
   Button,
   Box,
   Avatar,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
 } from '@mui/material';
 import {
   Save as SaveIcon,
@@ -21,12 +25,13 @@ const Profile = () => {
     nom: 'DIALLO',
     dateNaissance: '2005-03-15',
     nationalite: 'Française',
+    paysResidence: 'France',
     ville: 'Paris',
-    pays: 'France',
-    sport: 'Football',
+    sport: 'football',
     position: 'Attaquant',
-    niveau: 'Semi-professionnel',
-    bio: 'Attaquant polyvalent avec une excellente vision du jeu.',
+    niveau: 'semi-pro',
+    piedPrefere: 'droit',
+    bio: 'Attaquant polyvalent avec une excellente vision du jeu. Passionné et déterminé à progresser vers le niveau professionnel.',
   });
 
   const [editing, setEditing] = useState(false);
@@ -151,7 +156,7 @@ const Profile = () => {
                     InputLabelProps={{ shrink: true }}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={4}>
                   <TextField
                     fullWidth
                     label="Nationalité"
@@ -160,7 +165,16 @@ const Profile = () => {
                     disabled={!editing}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={4}>
+                  <TextField
+                    fullWidth
+                    label="Pays de résidence"
+                    value={formData.paysResidence}
+                    onChange={handleChange('paysResidence')}
+                    disabled={!editing}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={4}>
                   <TextField
                     fullWidth
                     label="Ville"
@@ -169,37 +183,36 @@ const Profile = () => {
                     disabled={!editing}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    label="Pays"
-                    value={formData.pays}
-                    onChange={handleChange('pays')}
-                    disabled={!editing}
-                  />
-                </Grid>
               </Grid>
             </CardContent>
           </Card>
         </Grid>
 
-        <Grid item xs={12}>
-          <Card>
+        <Grid item xs={12} md={6}>
+          <Card sx={{ height: '100%' }}>
             <CardContent>
               <Typography variant="h6" fontWeight={600} gutterBottom>
                 Informations Sportives
               </Typography>
               <Grid container spacing={2} sx={{ mt: 1 }}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    label="Sport"
-                    value={formData.sport}
-                    onChange={handleChange('sport')}
-                    disabled={!editing}
-                  />
+                <Grid item xs={12}>
+                  <FormControl fullWidth disabled={!editing}>
+                    <InputLabel>Sport</InputLabel>
+                    <Select
+                      value={formData.sport}
+                      label="Sport"
+                      onChange={handleChange('sport')}
+                    >
+                      <MenuItem value="football">Football</MenuItem>
+                      <MenuItem value="basketball">Basketball</MenuItem>
+                      <MenuItem value="tennis">Tennis</MenuItem>
+                      <MenuItem value="handball">Handball</MenuItem>
+                      <MenuItem value="rugby">Rugby</MenuItem>
+                      <MenuItem value="volleyball">Volleyball</MenuItem>
+                    </Select>
+                  </FormControl>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                   <TextField
                     fullWidth
                     label="Position / Poste"
@@ -208,22 +221,43 @@ const Profile = () => {
                     disabled={!editing}
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    label="Niveau"
-                    value={formData.niveau}
-                    onChange={handleChange('niveau')}
-                    disabled={!editing}
-                  />
+                <Grid item xs={12}>
+                  <FormControl fullWidth disabled={!editing}>
+                    <InputLabel>Niveau</InputLabel>
+                    <Select
+                      value={formData.niveau}
+                      label="Niveau"
+                      onChange={handleChange('niveau')}
+                    >
+                      <MenuItem value="debutant">Débutant</MenuItem>
+                      <MenuItem value="amateur">Amateur</MenuItem>
+                      <MenuItem value="semi-pro">Semi-professionnel</MenuItem>
+                      <MenuItem value="pro">Professionnel</MenuItem>
+                      <MenuItem value="elite">Élite</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControl fullWidth disabled={!editing}>
+                    <InputLabel>Pied préféré</InputLabel>
+                    <Select
+                      value={formData.piedPrefere}
+                      label="Pied préféré"
+                      onChange={handleChange('piedPrefere')}
+                    >
+                      <MenuItem value="gauche">Gauche</MenuItem>
+                      <MenuItem value="droit">Droit</MenuItem>
+                      <MenuItem value="ambidextre">Ambidextre</MenuItem>
+                    </Select>
+                  </FormControl>
                 </Grid>
               </Grid>
             </CardContent>
           </Card>
         </Grid>
 
-        <Grid item xs={12}>
-          <Card>
+        <Grid item xs={12} md={6}>
+          <Card sx={{ height: '100%' }}>
             <CardContent>
               <Typography variant="h6" fontWeight={600} gutterBottom>
                 À propos
@@ -231,7 +265,7 @@ const Profile = () => {
               <TextField
                 fullWidth
                 multiline
-                rows={4}
+                rows={11}
                 label="Biographie"
                 value={formData.bio}
                 onChange={handleChange('bio')}

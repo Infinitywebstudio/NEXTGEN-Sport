@@ -16,7 +16,6 @@ import {
   Notifications as NotificationsIcon,
   Settings as SettingsIcon,
   Logout as LogoutIcon,
-  Person as PersonIcon,
 } from '@mui/icons-material';
 
 interface TopBarProps {
@@ -142,12 +141,6 @@ const TopBar = ({ user, onNavigate }: TopBarProps) => {
               </Typography>
             </Box>
             <Divider sx={{ my: 0.5 }} />
-            <MenuItem onClick={() => handleMenuClick('profile')}>
-              <ListItemIcon>
-                <PersonIcon fontSize="small" />
-              </ListItemIcon>
-              Mon Profil
-            </MenuItem>
             <MenuItem onClick={() => handleMenuClick('settings')}>
               <ListItemIcon>
                 <SettingsIcon fontSize="small" />

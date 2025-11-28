@@ -23,10 +23,8 @@ const Layout = ({ children, currentPage, onNavigate, user }: LayoutProps) => {
         component="main"
         sx={{
           flexGrow: 1,
-          width: `calc(100% - ${DRAWER_WIDTH}px)`,
           p: 3,
           mt: 8,
-          ml: `${DRAWER_WIDTH}px`,
           minHeight: 'calc(100vh - 64px)',
         }}
       >

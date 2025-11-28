@@ -116,7 +116,7 @@ const Overview = () => {
 
       {/* Stats Cards */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} lg={3}>
           <StatsCard
             icon={<VisibilityIcon sx={{ fontSize: 28 }} />}
             title="Vues du Profil"
@@ -125,7 +125,7 @@ const Overview = () => {
             color="#f87028"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} lg={3}>
           <StatsCard
             icon={<FavoriteIcon sx={{ fontSize: 28 }} />}
             title="Likes"
@@ -134,7 +134,7 @@ const Overview = () => {
             color="#f87028"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} lg={3}>
           <StatsCard
             icon={<PlayIcon sx={{ fontSize: 28 }} />}
             title="Lectures Vidéo"
@@ -143,7 +143,7 @@ const Overview = () => {
             color="#8fc92f"
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
+        <Grid item xs={12} sm={6} lg={3}>
           <StatsCard
             icon={<TrendingUpIcon sx={{ fontSize: 28 }} />}
             title="Abonnés"
@@ -156,7 +156,7 @@ const Overview = () => {
 
       <Grid container spacing={3}>
         {/* Views Chart */}
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12}>
           <Card>
             <CardContent>
               <Typography variant="h6" fontWeight={600} gutterBottom>
@@ -178,60 +178,6 @@ const Overview = () => {
                   />
                 </LineChart>
               </ResponsiveContainer>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        {/* Messages Preview */}
-        <Grid item xs={12} md={4}>
-          <Card sx={{ height: '100%' }}>
-            <CardContent>
-              <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
-                <Typography variant="h6" fontWeight={600}>
-                  Messages récents
-                </Typography>
-                <Chip label="3 nouveaux" size="small" color="secondary" />
-              </Box>
-              <List sx={{ p: 0 }}>
-                {recentMessages.map((msg) => (
-                  <ListItem
-                    key={msg.id}
-                    sx={{
-                      px: 0,
-                      py: 1.5,
-                      borderRadius: 2,
-                      '&:hover': { bgcolor: 'action.hover' },
-                      cursor: 'pointer',
-                    }}
-                  >
-                    <ListItemAvatar>
-                      <Avatar src={msg.avatar} />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={
-                        <Typography variant="body2" fontWeight={msg.unread ? 600 : 400}>
-                          {msg.name}
-                        </Typography>
-                      }
-                      secondary={
-                        <Typography variant="caption" color="text.secondary" noWrap>
-                          {msg.message}
-                        </Typography>
-                      }
-                    />
-                    {msg.unread && (
-                      <Box
-                        sx={{
-                          width: 8,
-                          height: 8,
-                          borderRadius: '50%',
-                          bgcolor: 'secondary.main',
-                        }}
-                      />
-                    )}
-                  </ListItem>
-                ))}
-              </List>
             </CardContent>
           </Card>
         </Grid>
