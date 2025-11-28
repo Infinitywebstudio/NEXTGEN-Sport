@@ -1604,8 +1604,8 @@ button {
 }
 
 .profile-section {
-    margin-bottom: var(--spacing-xl);
-    padding-bottom: var(--spacing-lg);
+    margin-bottom: 48px;
+    padding-bottom: 32px;
     border-bottom: 1px solid #e8ecef;
 }
 
@@ -1615,23 +1615,26 @@ button {
 
 .profile-section h3 {
     color: var(--text-dark);
-    font-size: 1.25rem;
-    margin-bottom: var(--spacing-md);
+    font-size: 1.35rem;
+    margin-bottom: 28px;
     display: flex;
     align-items: center;
     gap: var(--spacing-sm);
+    font-weight: 600;
 }
 
 .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
+    margin-bottom: 8px;
 }
 
 .form-group.full-width {
@@ -1640,8 +1643,10 @@ button {
 
 .form-group label {
     color: var(--text-medium);
-    font-size: 0.875rem;
-    font-weight: 500;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
 }
 
 .form-group input[type="text"],
